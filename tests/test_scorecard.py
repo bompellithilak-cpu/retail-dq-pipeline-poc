@@ -4,7 +4,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pandas as pd
-
 from src.dq_engine.pipeline import run_pipeline
 from src.dq_engine.scorecard import build_scorecard, run_rules
 
