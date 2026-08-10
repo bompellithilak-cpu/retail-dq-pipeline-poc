@@ -1,0 +1,16 @@
+order_id,customer_id,order_date,product_sku,quantity,unit_price,store_id,email
+O001,C001,2026-08-01,SKU-1001,2,19.99,S001,asha.rao@example.com
+O002,C002,2026-08-02,SKU-1002,1,49.50,S002,ben.fischer@example.com
+O003,C003,2026-08-02,SKU-1003,3,9.25,S003,chidi.okoye@example.com
+O003,C004,2026-08-03,SKU-1004,1,15.00,S001,diya.kapoor@example.com
+O005,,2026-08-03,SKU-1005,2,22.00,S002,elena.petrova@example.com
+O006,C006,2026-08-04,SKU-1006,1,12.75,S003,farhan.ali.at.example.com
+O007,C007,2026-08-04,SKU-1007,-3,8.00,S004,grace.lin@example.com
+O008,C008,2026-08-05,SKU-1008,2,-5.00,S005,hiro.tanaka@example.com
+O009,C009,2026-12-25,SKU-1009,1,30.00,S001,isla.murphy@example.com
+O010,C010,2026-08-06,SKU-1010,4,7.50,S999,jonas.weber@example.com
+O011,C999,2026-08-06,SKU-1011,1,18.20,S002,unknown.customer@example.com
+O012,C001,,SKU-1012,2,11.00,S003,asha.rao@example.com
+O013,C002,2026-08-07,,1,25.00,S004,ben.fischer@example.com
+O014,C003,2026-08-07,SKU-1014,3,6.99,S005,chidi.okoye@example.com
+O015,C004,2026-08-08,SKU-1015,2,14.49,S001,diya.kapoor@example.com
