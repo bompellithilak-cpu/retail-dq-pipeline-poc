@@ -19,7 +19,9 @@ from pathlib import Path
 
 from src.dq_engine.pipeline import run_pipeline
 
-repo_root = Path.cwd()
+# Databricks runs this notebook with cwd = the notebook's own folder
+# (files/notebooks/), so the repo root is one level up from here.
+repo_root = Path.cwd().parent
 result = run_pipeline(
     data_dir=repo_root / "data",
     output_path=repo_root / "output" / "dq_scorecard.json",
