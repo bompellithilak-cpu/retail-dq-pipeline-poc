@@ -5,6 +5,11 @@ sync:
   paths:
     - ..
 
+variables:
+  config_path:
+    description: "Path to the environment config file used by the DQ pipeline notebook"
+    default: configs/dev.yaml
+
 artifacts:
   dq_engine_wheel:
     type: whl
@@ -23,6 +28,8 @@ resources:
               config_path: ${var.config_path}
               run_env: ${bundle.target}
           environment_key: dq_env
+          max_retries: 1
+          timeout_seconds: 600
       environments:
         - environment_key: dq_env
           spec:
@@ -32,8 +39,6 @@ resources:
       email_notifications:
         on_failure:
           - bthilak.da@gmail.com
-      max_retries: 1
-      timeout_seconds: 600
 
 targets:
   dev:
