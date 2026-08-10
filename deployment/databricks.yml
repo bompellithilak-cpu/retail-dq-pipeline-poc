@@ -1,0 +1,49 @@
+bundle:
+  name: retail-dq-pipeline-poc
+
+sync:
+  paths:
+    - ..
+
+artifacts:
+  dq_engine_wheel:
+    type: whl
+    build: python -m pip install --upgrade build && python -m build --wheel
+    path: ..
+
+resources:
+  jobs:
+    dq_pipeline_job:
+      name: retail_dq_pipeline_job
+      tasks:
+        - task_key: run_dq_pipeline
+          notebook_task:
+            notebook_path: ../notebooks/01_run_dq_pipeline.py
+            base_parameters:
+              config_path: ${var.config_path}
+              run_env: ${bundle.target}
+          environment_key: dq_env
+      environments:
+        - environment_key: dq_env
+          spec:
+            client: "2"
+            dependencies:
+              - ../dist/*.whl
+      email_notifications:
+        on_failure:
+          - bthilak.da@gmail.com
+      max_retries: 1
+      timeout_seconds: 600
+
+targets:
+  dev:
+    mode: development
+    default: true
+    variables:
+      config_path: configs/dev.yaml
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Shared/.bundle/retail-dq-pipeline-poc/${bundle.target}
+    variables:
+      config_path: configs/prod.yaml
