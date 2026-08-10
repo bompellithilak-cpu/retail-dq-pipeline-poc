@@ -13,7 +13,6 @@ from pathlib import Path
 
 import pandas as pd
 from pythonjsonlogger import jsonlogger
-
 from src.dq_engine.scorecard import build_scorecard, run_rules
 
 logger = logging.getLogger("dq_pipeline")
