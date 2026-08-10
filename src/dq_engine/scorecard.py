@@ -8,7 +8,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 import pandas as pd
-
 from src.dq_engine.rules import RULE_CATALOG
 
 
